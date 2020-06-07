@@ -4,20 +4,24 @@ export default {
   sorted_products: [],
   select_options: [
     {
-      name: "все",
+      name: "all",
       value: "all",
     },
     {
-      name: "Мужские",
-      value: "male",
+      name: "small",
+      value: "small",
     },
     {
-      name: "Женские",
-      value: "female",
+      name: "medium",
+      value: "medium",
+    },
+    {
+      name: "big",
+      value: "big",
     },
   ],
   searchValue: '',
-  selected_option: "все",
+  selected_option: "all",
   are_options_visible: false,
   nouisliderConfig: {
     start: 0,

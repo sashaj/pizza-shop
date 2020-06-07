@@ -6,7 +6,8 @@
       "price": 12,
       "article": "P1",
       "available": true,
-      "category": "small"
+      "category": "small",
+      "description": "Burger sauce, chicken, ranch sauce, chorizo, bell peppers, red onions, mozzarella, tomatoes, garlic"
     },
     {
       "image": "cheese.jpg",
@@ -14,7 +15,8 @@
       "price": 15,
       "article": "P2",
       "available": true,
-      "category": "small"
+      "category": "small",
+      "description": "Large portion of mozzarella, tomato sauce"
     },
     {
       "image": "ham-cheese.jpg",
@@ -22,7 +24,8 @@
       "price": 20,
       "article": "P3",
       "available": false,
-      "category": "medium"
+      "category": "medium",
+      "description": "Ham, large portion of mozzarella, cream sauce"
     },
     {
       "image": "ham-mushrooms.jpeg",
@@ -30,7 +33,8 @@
       "price": 18,
       "article": "P4",
       "available": true,
-      "category": "medium"
+      "category": "medium",
+      "description": "Ham, champignons, large portion of mozzarella, tomato sauce"
     },
     {
       "image": "hawaii.jpg",
@@ -38,7 +42,8 @@
       "price": 14,
       "article": "P5",
       "available": false,
-      "category": "small"
+      "category": "small",
+      "description": "Chicken, tomato sauce, mozzarella, pineapple"
     },
     {
       "image": "italian.jpg",
@@ -46,7 +51,8 @@
       "price": 25,
       "article": "P6",
       "available": true,
-      "category": "big"
+      "category": "big",
+      "description": "Italian herbs, spicy pepperoni, tomato sauce, mushrooms, mozzarella, black olives"
     },
     {
       "image": "mexican.jpg",
@@ -54,7 +60,8 @@
       "price": 30,
       "article": "P7",
       "available": true,
-      "category": "big"
+      "category": "big",
+      "description": "Chicken, tomato sauce, bell pepper, red onion, mozzarella, spicy jalapenos, tomatoes, salsa sauce"
     },
     {
       "image": "pepperoni.jpeg",
@@ -62,7 +69,8 @@
       "price": 27,
       "article": "P8",
       "available": true,
-      "category": "big"
+      "category": "big",
+      "description": "Spicy pepperoni, larger portion of mozzarella, tomatoes, tomato sauce"
     }
   ]
 }

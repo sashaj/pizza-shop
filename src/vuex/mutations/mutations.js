@@ -45,7 +45,7 @@ export default {
     if (option){
       state.selected_option = option.name;
     }
-    if (state.selected_option === "все") {
+    if (state.selected_option === "all") {
       return state.products;
     } else {  
       state.sorted_products = state.sorted_products.filter((item) => {
@@ -59,20 +59,20 @@ export default {
       state.sorted_products = [...state.products];
   
       state.sorted_products = state.sorted_products.filter((item) => {
-        if (state.selected_option !== "все" && !state.searchValue.length) {
+        if (state.selected_option !== "all" && !state.searchValue.length) {
           return (
             item.price >= state.nouisliderConfig.currentValues[0] &&
             item.price <= state.nouisliderConfig.currentValues[1] &&
             item.category === state.selected_option
           );
-        } else if (state.selected_option == "все" && !state.searchValue.length) {
+        } else if (state.selected_option == "all" && !state.searchValue.length) {
                  return (
                    item.price >= state.nouisliderConfig.currentValues[0] &&
                    item.price <= state.nouisliderConfig.currentValues[1]
                  );
                }
         if (state.searchValue.length) {
-             if (state.selected_option !== "все") {
+             if (state.selected_option !== "all") {
                return (
                  item.price >= state.nouisliderConfig.currentValues[0] &&
                  item.price <= state.nouisliderConfig.currentValues[1] &&
@@ -81,7 +81,7 @@ export default {
                   .toLowerCase()
                   .includes(state.searchValue.toLowerCase())
                );
-             } else if(state.selected_option == "все") {
+             } else if(state.selected_option == "all") {
                return (
                  item.price >= state.nouisliderConfig.currentValues[0] &&
                  item.price <= state.nouisliderConfig.currentValues[1] &&
