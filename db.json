@@ -1,52 +1,68 @@
 {
   "products": [
     {
-      "image": "1.jpg",
-      "name": "T-shirt 1",
-      "price": 2100,
-      "article": "T1",
+      "image": "arriva.jpeg",
+      "name": "Arriva",
+      "price": 12,
+      "article": "P1",
       "available": true,
-      "category": "Мужские"
+      "category": "small"
     },
     {
-      "image": "2.jpg",
-      "name": "T-shirt 2",
-      "price": 3150,
-      "article": "T2",
+      "image": "cheese.jpg",
+      "name": "Cheese",
+      "price": 15,
+      "article": "P2",
       "available": true,
-      "category": "Женские"
+      "category": "small"
     },
     {
-      "image": "3.jpg",
-      "name": "T-shirt 3",
-      "price": 4200,
-      "article": "T3",
+      "image": "ham-cheese.jpg",
+      "name": "Ham and cheese",
+      "price": 20,
+      "article": "P3",
       "available": false,
-      "category": "Женские"
+      "category": "medium"
     },
     {
-      "image": "4.jpg",
-      "name": "T-shirt 4",
-      "price": 5300,
-      "article": "T4",
+      "image": "ham-mushrooms.jpeg",
+      "name": "Ham and mushrooms",
+      "price": 18,
+      "article": "P4",
       "available": true,
-      "category": "Мужские"
+      "category": "medium"
     },
     {
-      "image": "5.jpg",
-      "name": "T-shirt 5",
-      "price": 6500,
-      "article": "T5",
+      "image": "hawaii.jpg",
+      "name": "Hawaii",
+      "price": 14,
+      "article": "P5",
       "available": false,
-      "category": "Женские"
+      "category": "small"
     },
     {
-      "image": "6.jpeg",
-      "name": "T-shirt 6",
-      "price": 8700,
-      "article": "T6",
+      "image": "italian.jpg",
+      "name": "Italian",
+      "price": 25,
+      "article": "P6",
       "available": true,
-      "category": "Женские"
+      "category": "big"
+    },
+    {
+      "image": "mexican.jpg",
+      "name": "Mexican",
+      "price": 30,
+      "article": "P7",
+      "available": true,
+      "category": "big"
+    },
+    {
+      "image": "pepperoni.jpeg",
+      "name": "Pepperoni",
+      "price": 27,
+      "article": "P8",
+      "available": true,
+      "category": "big"
     }
   ]
 }

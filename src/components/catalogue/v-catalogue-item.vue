@@ -12,23 +12,23 @@
         :src="require('../../assets/images/' + product_data.image)"
       />
       <div class='popup__info'>
-        <p class="v-catalog-item__name">{{ product_data.name }}</p>
-        <p class="v-catalog-item__price">Price: {{ product_data.price }}</p>
-        <p class="v-catalog-item__price">Category: {{ product_data.category }}</p>
+        <p class="v-catalogue-item__name">{{ product_data.name }}</p>
+        <p class="v-catalogue-item__price">Price: {{ product_data.price }}</p>
+        <p class="v-catalogue-item__price">Category: {{ product_data.category }}</p>
 
       </div>
     
     </v-popup>
     <img
-      class="v-catalog-item__image"
+      class="v-catalogue-item__image"
       :src="require('../../assets/images/' + product_data.image)"
     />
-    <p class="v-catalog-item__name">{{ product_data.name }}</p>
-    <p class="v-catalog-item__price">Price: {{ product_data.price }}</p>
-    <button class="v-catalog-item__show_info" @click="showPopupInfo">
+    <p class="v-catalogue-item__name">{{ product_data.name }}</p>
+    <p class="v-catalogue-item__price">Price: {{ product_data.price }}</p>
+    <button class="v-catalogue-item__show_info" @click="showPopupInfo">
       show info
     </button>
-    <button class="v-catalog-item__add_to_cart_btn btn" @click="addToCart">
+    <button class="v-catalogue-item__add_to_cart_btn btn" @click="addToCart">
       add to cart
     </button>
   </div>
