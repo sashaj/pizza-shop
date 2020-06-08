@@ -25,11 +25,10 @@ export default {
       for (let i = 0; i < state.cart.length; i++){
         state.total_cart_items += state.cart[i].quantity
       }
-    
     console.log('count:' + state.cart.length);
-
   },
   REMOVE_FROM_CART: (state, index) => {
+    state.cart[index].quantity = 1;
     state.cart.splice(index, 1);
   },
   INCREMENT: (state, index) => {
