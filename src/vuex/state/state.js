@@ -1,7 +1,9 @@
 export default {
   products: [],
   cart: [],
+  total_cart_items: 0,
   sorted_products: [],
+  cart_item_data: [],
   select_options: [
     {
       name: "all",
@@ -24,13 +26,13 @@ export default {
   selected_option: "all",
   are_options_visible: false,
   nouisliderConfig: {
-    start: 0,
-    end: 10000,
-    step: 50,
+    start: 12,
+    end: 30,
+    step: 1,
     tooltips: true,
-    rangeStart: 0,
-    rangeEnd: 10000,
-    currentValues: [0, 1000],
+    rangeStart: 12,
+    rangeEnd: 30,
+    currentValues: [12, 30],
   },
   offline_data: {
     "products": [

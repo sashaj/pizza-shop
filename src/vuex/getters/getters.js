@@ -22,5 +22,8 @@ export default {
     },
     NOUISLIDER_CONFIG(state){
         return state.nouisliderConfig;
+    },
+    TOTAL_CART_ITEMS(state){
+        return state.total_cart_items;
     }
 }

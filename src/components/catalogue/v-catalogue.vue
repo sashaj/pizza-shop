@@ -1,9 +1,9 @@
 <template>
   <div class="v-catalogue">
-    <router-link :to="{ name: 'cart', params: { cart_data: CART } }">
-      <div class="v-catalogue__link-to-cart">Cart: {{ CART.length }}</div>
+    <router-link :to="{ name: 'cart' }">
+      <div class="v-catalogue__link-to-cart">Cart: {{ TOTAL_CART_ITEMS }}</div>
     </router-link>
-    <h1>Catalog</h1>
+    <h1>Menu</h1>
     <vSelect></vSelect>
     <div ref="slider" class='slider'></div>
     <p>selected: {{ SELECTED_OPTION }}</p>
@@ -38,7 +38,8 @@ export default {
       "SELECTED_OPTION",
       "SORTED_PRODUCTS",
       "NOUISLIDER_CONFIG",
-      "SEARCH_VALUE"
+      "SEARCH_VALUE",
+      "TOTAL_CART_ITEMS"
     ]),
     filteredProducts(){
       if (this.SORTED_PRODUCTS.length){

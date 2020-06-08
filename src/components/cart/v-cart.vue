@@ -4,9 +4,9 @@
             <div class="v-cart__link-to-catalogue">To catalogue</div>
         </router-link>
         <h1>Basket </h1>
-        <p v-if='!cart_data.length'>there are no products in basket...</p>
+        <p v-if='!CART.length'>there are no products in basket...</p>
         <vCartItem
-            v-for="(item, index) in cart_data"
+            v-for="(item, index) in CART"
             :key='item.article'
             :cart_item_data='item'
             @deleteFromCart='deleteFromCart(index)'
@@ -23,17 +23,9 @@
 <script>
 
 import vCartItem  from './v-cart-item.vue';
-import {mapActions} from 'vuex';
+import {mapActions, mapGetters} from 'vuex';
 export default {
     name: 'v-cart',
-    props: {
-        cart_data: {
-            type: Array,
-            default(){
-                return []
-            }
-        }
-    },
     components: {
         vCartItem
     },
@@ -45,19 +37,22 @@ export default {
     computed:{
         cartTotalCost(){
             let result = [];
-            if (this.cart_data.length){
-            for (let item of this.cart_data){
-                result.push(item.price * item.quantity);
-            }
-            result = result.reduce(function(sum, el){
-                return sum + el;
-            })
-            console.log(result);
-            return result;
+            if (this.CART.length){
+                for (let item of this.CART){
+                    result.push(item.price * item.quantity);
+                }
+                result = result.reduce(function(sum, el){
+                    return sum + el;
+                })
+                console.log(result);
+                return result;
             } else {
                 return 0;
             }       
-        }
+        },
+        ...mapGetters([    
+            "CART",
+        ]),
     },
     methods:{
         ...mapActions([

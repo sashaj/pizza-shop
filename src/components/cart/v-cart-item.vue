@@ -8,12 +8,9 @@
     </div>
     <div class="v-cart-item__quantity">
       <p>qty:</p>
-      <span @click='decrementItem' class="qty_btn">-</span>
-      <span> 
-            {{cart_item_data.quantity}}
-      </span>
-      <span @click='incrementItem' class="qty_btn qty_btn-increment">+</span>
-
+      <span @click="decrementItem" class="qty_btn">-</span>
+      <span>{{cart_item_data.quantity}}</span>
+      <span @click="incrementItem" class="qty_btn qty_btn-increment">+</span>
     </div>
     <button @click="deleteFromCart">delete</button>
   </div>
@@ -38,13 +35,13 @@ export default {
     deleteFromCart() {
       this.$emit("deleteFromCart");
     },
-    decrementItem(){
+    decrementItem() {
       this.$emit("decrement");
     },
-    incrementItem(){
+    incrementItem() {
       this.$emit("increment");
     }
-  },
+  }
 };
 </script>
 
@@ -62,11 +59,11 @@ export default {
 .v-cart-item__image {
   max-width: 50px;
 }
-.v-cart-item__quantity{
+.v-cart-item__quantity {
   display: flex;
   align-items: center;
 }
-.qty_btn{
+.qty_btn {
   width: 20px;
   height: 20px;
   border: 1px solid black;
@@ -77,5 +74,4 @@ export default {
   margin-right: 10px;
   margin-left: 10px;
 }
-
 </style>

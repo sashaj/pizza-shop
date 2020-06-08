@@ -2,6 +2,7 @@ export default{
 
     ADD_TO_CART({ commit }, product) {
         commit('SET_CART', product);
+        commit('CALCULATE_TOTAL_CART_ITEMS');
     },
     DELETE_FROM_CART({ commit }, index) {
         commit('REMOVE_FROM_CART', index);
