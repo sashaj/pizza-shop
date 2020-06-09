@@ -26,13 +26,15 @@ export default {
   selected_option: "all",
   are_options_visible: false,
   nouisliderConfig: {
-    start: 12,
+    start: 5,
+    orientation: 'vertical',
     end: 30,
-    step: 1,
+    step: 0.01,
     tooltips: true,
-    rangeStart: 12,
+    rangeStart: 0,
     rangeEnd: 30,
     currentValues: [12, 30],
+
   },
   offline_data: {
     "products": [

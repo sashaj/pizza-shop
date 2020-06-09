@@ -7,22 +7,25 @@
       rightBtnTitle='add to cart'
       modalTitle='Info'
     > 
-      <img
-        class="v-catalog-item__image"
-        :src="require('../../assets/images/' + product_data.image)"
-      />
+      <div class="v-catalogue-item__image-wrapper">
+        <img
+          class="v-catalogue-item__image"
+          :src="require('../../assets/images/' + product_data.image)"
+        />
+      </div>
       <div class='popup__info'>
         <p class="v-catalogue-item__name">{{ product_data.name }}</p>
         <p class="v-catalogue-item__price">Price: {{ product_data.price }}</p>
         <p class="v-catalogue-item__price">Category: {{ product_data.category }}</p>
-
       </div>
     
     </v-popup>
-    <img
-      class="v-catalogue-item__image"
-      :src="require('../../assets/images/' + product_data.image)"
-    />
+    <div class="v-catalogue-item__image-wrapper">
+      <img
+        class="v-catalogue-item__image"
+        :src="require('../../assets/images/' + product_data.image)"
+      />
+    </div>
     <p class="v-catalogue-item__name">{{ product_data.name }}</p>
     <p class="v-catalogue-item__price">Price: {{ product_data.price }}</p>
     <button class="v-catalogue-item__show_info" @click="showPopupInfo">
@@ -73,13 +76,14 @@ export default {
 <style lang="scss">
 
 .v-catologue-item {
-  flex-basis: 25%;
-  box-shadow: 0 0 8px 0 #e9e9e9;
+  width: 20%;  
   padding: $padding;
   margin-bottom: $margin;
   margin: 15px;
-  .v-catalog-item__image {
-    width: 100px;
-  }
+
+}
+
+.v-catalogue-item__image-wrapper {
+  width: 100%;
 }
 </style>

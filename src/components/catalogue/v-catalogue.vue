@@ -1,13 +1,9 @@
 <template>
   <div class="v-catalogue">
-    <router-link :to="{ name: 'cart' }">
-      <div class="v-catalogue__link-to-cart">Cart: {{ TOTAL_CART_ITEMS }}</div>
-    </router-link>
-    <h1>Menu</h1>
-    <vSelect></vSelect>
-    <div ref="slider" class='slider'></div>
-    <p>selected: {{ SELECTED_OPTION }}</p>
-    <div class="v-catalogue__list">
+
+    <div class="v-catalogue__left">
+          <h1>Menu</h1>
+     <div class="v-catalogue__list">
       <vCatalogueItem
         v-for="product in SORTED_PRODUCTS"
         :key="product.article"
@@ -16,6 +12,14 @@
       />
       <p v-if="!SORTED_PRODUCTS.length">Nothing found with selected search terms</p>
     </div>
+    </div>
+
+    <div class="v-catalogue__right">
+      <vSelect></vSelect>
+      <div ref="slider" class='slider'></div>
+    </div>
+
+    
   </div>
 </template>
 
@@ -78,7 +82,18 @@ export default {
           max: this.NOUISLIDER_CONFIG.rangeEnd
         },
         tooltips: this.NOUISLIDER_CONFIG.tooltips,
-        step: this.NOUISLIDER_CONFIG.step
+        step: this.NOUISLIDER_CONFIG.step,
+        format: {
+          from: function(value) {
+                  return parseInt(value);
+              },
+          to: function(value) {
+                  return parseInt(value);
+              }
+        },
+      direction: 'rtl',
+      orientation: 'vertical',
+      connect: true
       });
       this.NOUISLIDER_CURRENT_VALUES(slider.noUiSlider.get());
       slider.noUiSlider.on("change", ()=> {
@@ -93,31 +108,52 @@ export default {
 </script>
 
 <style lang="scss">
+body {
+    font-family: "FiraSans Light";
+}
+h1{
+  text-align: left;
+  margin-bottom: 30px;
+}
+
 .v-catalogue {
   width: 100%;
+  display: flex;
   &__list {
     display: flex;
     flex-wrap: wrap;
     width: 100%;
     align-items: center;
     text-align: center;
-    justify-content: center;
+    justify-content: space-between;
+  }
+  &__left {
+    
+  }
+  &__right{
+    display: flex;
+    flex-direction: column;
   }
 }
 .slider{
-  width: 90%;
-  margin: 0 auto;
+
+  margin-right: 50px;
+  margin-left: 20px;
+  height: 400px;
 }
-.v-catalogue__link-to-cart {
-  position: absolute;
-  top: 102px;
-  right: 10px;
-  padding: $padding * 2;
-  border: solid 1px gray;
+
+
+
+.slider .noUi-tooltip{
+  background: none;
+  border: none;
+  transform: rotate(-90deg);
+  right: unset;
+  top: -50px;
 }
-#slider {
-  width: 400px;
-  margin-left: auto;
+.noUi-handle{
+  cursor: pointer;
+  transform: rotate(90deg);
 }
 @import "~vue-range-slider/dist/vue-range-slider.scss";
 @import "~nouislider/distribute/nouislider.css";

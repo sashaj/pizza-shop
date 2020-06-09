@@ -1,8 +1,8 @@
 <template>
     <div class="v-cart">
-        <router-link :to="{name: 'catalogue' }">   
+        <!-- <router-link :to="{name: 'catalogue' }">   
             <div class="v-cart__link-to-catalogue">To catalogue</div>
-        </router-link>
+        </router-link> -->
         <h1>Basket </h1>
         <p v-if='!CART.length'>there are no products in basket...</p>
         <vCartItem
