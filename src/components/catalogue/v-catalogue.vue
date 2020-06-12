@@ -1,24 +1,21 @@
 <template>
   <div class="v-catalogue">
-
-    <div class="v-catalogue__left">
-          <h1>Menu</h1>
-     <div class="v-catalogue__list">
-      <vCatalogueItem
-        v-for="product in SORTED_PRODUCTS"
-        :key="product.article"
-        :product_data="product"
-        @addToCart="addToCart"
-      />
-      <p v-if="!SORTED_PRODUCTS.length">Nothing found with selected search terms</p>
-    </div>
-    </div>
-
+    <h1 class="v-catalogue__title">Menu</h1>    
     <div class="v-catalogue__right">
-      <vSelect></vSelect>
       <div ref="slider" class='slider'></div>
+      <vSelect></vSelect>
     </div>
-
+    <div class="v-catalogue__left">
+        <div class="v-catalogue__list">
+          <vCatalogueItem
+            v-for="product in SORTED_PRODUCTS"
+            :key="product.article"
+            :product_data="product"
+            @addToCart="addToCart"
+          />
+        <p v-if="!SORTED_PRODUCTS.length">Nothing found with selected search terms</p>
+      </div>
+    </div>
     
   </div>
 </template>
@@ -91,9 +88,10 @@ export default {
                   return parseInt(value);
               }
         },
-      direction: 'rtl',
-      orientation: 'vertical',
-      connect: true
+      // direction: 'rtl',
+      // orientation: 'vertical',
+        connect: true,
+    
       });
       this.NOUISLIDER_CURRENT_VALUES(slider.noUiSlider.get());
       slider.noUiSlider.on("change", ()=> {
@@ -119,13 +117,10 @@ h1{
 .v-catalogue {
   width: 100%;
   display: flex;
+  flex-direction: column;
   &__list {
-    display: flex;
-    flex-wrap: wrap;
     width: 100%;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
+    text-align: left;
   }
   &__left {
     
@@ -136,25 +131,54 @@ h1{
   }
 }
 .slider{
-
-  margin-right: 50px;
-  margin-left: 20px;
-  height: 400px;
+  margin-left: 10px;
+   margin-bottom: 30px;
+  width: 100%;
 }
-
-
 
 .slider .noUi-tooltip{
   background: none;
   border: none;
-  transform: rotate(-90deg);
   right: unset;
-  top: -50px;
+  top: -30px;
+  &:after{
+    content: '€';
+  }
 }
-.noUi-handle{
+
+.v-catalogue__title{
+  margin-bottom: 50px;
+}
+
+.noUi-horizontal .noUi-handle{
+  top: -16px;
+}
+.slider .noUi-handle{
+  background-image: url('~@/assets/images/logo.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  outline: none;
+  border: none;
   cursor: pointer;
-  transform: rotate(90deg);
+  background-color: transparent;
+  box-shadow: none;
+  height: 45px;
+  &:after, &:before{
+    display: none;
+  }
 }
+
+
+.slider__title{
+  margin-bottom: 30px;
+}
+
+.noUi-connect{
+  background-color: #f5e44c
+}
+
+
 @import "~vue-range-slider/dist/vue-range-slider.scss";
 @import "~nouislider/distribute/nouislider.css";
 </style>

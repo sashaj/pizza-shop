@@ -95,7 +95,7 @@ export default {
   padding: 16px;
   top: 50px;
   width: 400px;
-  box-shadow: 0 0 18px 0 #000;
+  box-shadow: 0 0 18px 0 #80807e;
   z-index: 3;
   background: #fff;
 }

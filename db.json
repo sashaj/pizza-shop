@@ -70,7 +70,88 @@
       "article": "P8",
       "available": true,
       "category": "big",
-      "description": "Spicy pepperoni, larger portion of mozzarella, tomatoes, tomato sauce"
+      "description": "Spicy pepperoni, larger portion of mozzarella, tomato sauce"
+    },
+    {
+      "image": "cheese-chicken.jpg",
+      "name": "Cheese chicken",
+      "price": 24,
+      "article": "P9",
+      "available": true,
+      "category": "medium",
+      "description": "Chicken, mozzarella, tomatoes, cheese sauce"
+    },
+    {
+      "image": "four-seasons.jpg",
+      "name": "Four seasons",
+      "price": 18,
+      "article": "P11",
+      "available": true,
+      "category": "big",
+      "description": "Larger portion of mozzarella, ham, pepperoni, feta cheese, tomatoes, champignons, tomato sauce"
+    },
+    {
+      "image": "meat.jpg",
+      "name": "Meat",
+      "price": 22,
+      "article": "P12",
+      "available": true,
+      "category": "big",
+      "description": "Chicken, ham, pepperoni, tomato sauce, spicy chorizo, mozzarella"
+    },
+    {
+      "image": "four-cheeses.jpg",
+      "name": "Four cheeses",
+      "price": 13,
+      "article": "P13",
+      "available": true,
+      "category": "small",
+      "description": "Larger portion of mozzarella, cheddar cheese, parmesan, blue cheese, cream sauce"
+    },
+    {
+      "image": "double-pepperoni.jpg",
+      "name": "Double pepperoni",
+      "price": 16,
+      "article": "P14",
+      "available": true,
+      "category": "medium",
+      "description": "More spicy pepperoni, larger portion of mozzarella, tomato sauce"
+    },
+    {
+      "image": "veggie.jpg",
+      "name": "Veggie",
+      "price": 21,
+      "article": "P15",
+      "available": false,
+      "category": "medium",
+      "description": "Tomatoes, feta cheese, champignons, bell peppers, red onions, mozzarella, black olives, tomato sauce"
+    },
+    {
+      "image": "margherita.jpg",
+      "name": "Margherita",
+      "price": 11,
+      "article": "P16",
+      "available": true,
+      "category": "big",
+      "description": "Larger portion of mozzarella, tomatoes, tomato sauce"
+    },
+    {
+      "image": "crazy-pepperoni.jpg",
+      "name": "Crazy pepperoni",
+      "price": 19,
+      "article": "P17",
+      "available": true,
+      "category": "small",
+      "description": "Chicken, spicy pepperoni, tomato sauce, mozzarella, sweet and sour sauce"
+    },
+    {
+      "image": "chicken-barbecue.jpg",
+      "name": "Chicken barbecue",
+      "price": 25,
+      "article": "P18",
+      "available": true,
+      "category": "medium",
+      "description": "Chicken, barbecue sauce, tomato sauce, red onion, mozarella, bacon"
     }
   ]
 }

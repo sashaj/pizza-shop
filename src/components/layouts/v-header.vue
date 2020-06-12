@@ -1,24 +1,34 @@
 <template>
   <div class="v-header">
-    <router-link :to="{name: 'main-page'}">
-      <i class="material-icons logo">local_pizza</i>
-    </router-link>
-    <div class="search__wrapper">
-      <input
-        type="text"
-        name
-        class="search-field"
-        v-model="searchValue"
-        placeholder="Search by name"
-      />
-      <button class="seach_btn">
-        <i class="material-icons" @click="search(searchValue)">search</i>
-      </button>
+    <div class="v-header__left">
+      <router-link :to="{name: 'main-page'}">
+        <!-- <i class="material-icons logo">local_pizza</i> -->
+        <div class="logo__wrapper">
+         <img :src="require('../../assets/images/logo.png')" alt="">
+        </div>
+      </router-link>
+      <div class="">
+最高のピザ</div>
     </div>
-    <router-link :to="{ name: 'cart' }" class="v-header__link-to-cart">
-      <i class="material-icons">shopping_basket</i>
-      {{ TOTAL_CART_ITEMS }}
-    </router-link>
+    <div class="v-header__right">
+      <router-link :to="{ name: 'cart' }" class="v-header__link-to-cart">
+        <i class="material-icons">shopping_basket</i>
+        {{ TOTAL_CART_ITEMS }}
+      </router-link>
+      <div class="search__wrapper">    
+          <input
+            type="text"
+            name
+            class="search-field"
+            v-model="searchValue"
+            placeholder="Search by name"
+          />
+          <button class="seach_btn">
+            <i class="material-icons" @click="search(searchValue)">search</i>
+          </button>        
+      </div>    
+
+    </div>
   </div>
 </template>
 
@@ -73,11 +83,13 @@ export default {
     height: 45px;
     padding-left: 15px;
     font-size: 15px;
+    border: 1px solid #80807e;
   }
   .search__wrapper {
     color: black;
     display: flex;
     position: relative;
+    margin-left: 30px;
   }
   .logo {
     font-size: 80px;
@@ -89,20 +101,25 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    // padding-left: 15px;
-    // padding-right: 15px;
     width: 90px;
-    border: solid 1px gray;
-    margin-left: auto;
+    border: solid 1px #80807e;
+
     .material-icons {
       margin-right: 15px;
+      color: #80807e;
     }
   }
   .seach_btn {
-    // position: absolute;
-    // right: 15px;
-    // top: 50%;
-    // transform: translateY(-45%);
+   border: 1px solid #80807e;
+   border-left: none;
+  }
+  .v-header__right{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .logo__wrapper{
+    width: 80px;
   }
 }
 </style>

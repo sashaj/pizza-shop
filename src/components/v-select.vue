@@ -48,7 +48,7 @@ export default {
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 .v-select {
   position: relative;
