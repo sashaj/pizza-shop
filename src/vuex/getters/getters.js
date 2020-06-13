@@ -25,5 +25,8 @@ export default {
     },
     TOTAL_CART_ITEMS(state){
         return state.total_cart_items;
+    },
+    USD(state){
+        return state.usd;
     }
 }

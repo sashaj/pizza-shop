@@ -1,6 +1,7 @@
 export default {
   products: [],
   cart: [],
+  usd: {},
   total_cart_items: 0,
   sorted_products: [],
   cart_item_data: [],

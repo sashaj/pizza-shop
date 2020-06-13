@@ -124,5 +124,9 @@ export default {
       item.quantity = 1;
     })
     console.log('offline data')
+  },
+  SET_USD_RATE: (state, rates) =>{
+    state.usd = rates.data.rates.USD;
+    console.log(state.usd)
   }
 };

@@ -7,7 +7,6 @@ export default{
     DELETE_FROM_CART({ commit }, index) {
         commit('REMOVE_FROM_CART', index);
         commit('CALCULATE_TOTAL_CART_ITEMS');
-
     },
     DECREMENT_CART_ITEM({ commit }, index) {
         commit('DECREMENT', index);

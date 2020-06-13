@@ -1,22 +1,21 @@
 <template>
   <div class="v-catalogue">
-    <h1 class="v-catalogue__title">Menu</h1>    
+    <h1 class="v-catalogue__title">Menu</h1>
     <div class="v-catalogue__right">
-      <div ref="slider" class='slider'></div>
+      <div ref="slider" class="slider"></div>
       <vSelect></vSelect>
     </div>
     <div class="v-catalogue__left">
-        <div class="v-catalogue__list">
-          <vCatalogueItem
-            v-for="product in SORTED_PRODUCTS"
-            :key="product.article"
-            :product_data="product"
-            @addToCart="addToCart"
-          />
+      <div class="v-catalogue__list">
+        <vCatalogueItem
+          v-for="product in SORTED_PRODUCTS"
+          :key="product.article"
+          :product_data="product"
+          @addToCart="addToCart"
+        />
         <p v-if="!SORTED_PRODUCTS.length">Nothing found with selected search terms</p>
       </div>
     </div>
-    
   </div>
 </template>
 
@@ -42,62 +41,61 @@ export default {
       "SEARCH_VALUE",
       "TOTAL_CART_ITEMS"
     ]),
-    filteredProducts(){
-      if (this.SORTED_PRODUCTS.length){
-        return this.SORTED_PRODUCTS
-      } else{
+    filteredProducts() {
+      if (this.SORTED_PRODUCTS.length) {
+        return this.SORTED_PRODUCTS;
+      } else {
         return [];
       }
     }
   },
   methods: {
     ...mapActions([
-      "GET_PRODUCTS_FROM_API", 
+      "GET_PRODUCTS_FROM_API",
       "ADD_TO_CART",
-      'SORT_BY_CATEGORIES',
+      "SORT_BY_CATEGORIES",
       "NOUISLIDER_CURRENT_VALUES",
       "SEARCH_PRODUCTS",
       "SLIDER_SEARCH",
-      ]),
+      "GET_CURRENCY_RATES"
+    ]),
     addToCart(data) {
       console.log(data);
       this.ADD_TO_CART(data);
-    },
-
+    }
   },
 
-  mounted() { 
+  mounted() {
     const slider = this.$refs.slider;
-    this.GET_PRODUCTS_FROM_API()
-      .then(()=>{
-        this.SORT_BY_CATEGORIES();
-      }); 
-      noUiSlider.create(slider, {
-        start: [this.NOUISLIDER_CONFIG.start, this.NOUISLIDER_CONFIG.end],
-        range: {
-          min: this.NOUISLIDER_CONFIG.rangeStart,
-          max: this.NOUISLIDER_CONFIG.rangeEnd
+    this.GET_PRODUCTS_FROM_API().then(() => {
+      this.SORT_BY_CATEGORIES();
+    });
+    noUiSlider.create(slider, {
+      start: [this.NOUISLIDER_CONFIG.start, this.NOUISLIDER_CONFIG.end],
+      range: {
+        min: this.NOUISLIDER_CONFIG.rangeStart,
+        max: this.NOUISLIDER_CONFIG.rangeEnd
+      },
+      tooltips: this.NOUISLIDER_CONFIG.tooltips,
+      step: this.NOUISLIDER_CONFIG.step,
+      format: {
+        from: function(value) {
+          return parseInt(value);
         },
-        tooltips: this.NOUISLIDER_CONFIG.tooltips,
-        step: this.NOUISLIDER_CONFIG.step,
-        format: {
-          from: function(value) {
-                  return parseInt(value);
-              },
-          to: function(value) {
-                  return parseInt(value);
-              }
-        },
+        to: function(value) {
+          return parseInt(value);
+        }
+      },
       // direction: 'rtl',
       // orientation: 'vertical',
-        connect: true,
-    
-      });
+      connect: true
+    });
+    this.NOUISLIDER_CURRENT_VALUES(slider.noUiSlider.get());
+    slider.noUiSlider.on("change", () => {
       this.NOUISLIDER_CURRENT_VALUES(slider.noUiSlider.get());
-      slider.noUiSlider.on("change", ()=> {
-        this.NOUISLIDER_CURRENT_VALUES(slider.noUiSlider.get());
-        this.SLIDER_SEARCH();
-      });           
+      this.SLIDER_SEARCH();
+    });
+    this.GET_CURRENCY_RATES();
   },
   data() {
     return {};
@@ -107,9 +105,9 @@ export default {
 
 <style lang="scss">
 body {
-    font-family: "FiraSans Light";
+  font-family: "FiraSans Light";
 }
-h1{
+h1 {
   text-align: left;
   margin-bottom: 30px;
 }
@@ -123,9 +121,8 @@ h1{
     text-align: left;
   }
   &__left {
-    
   }
-  &__right{
+  &__right {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -133,32 +130,32 @@ h1{
     padding-right: 25px;
   }
 }
-.slider{
+.slider {
   margin-left: 10px;
   margin-right: 20px;
   margin-bottom: 30px;
   width: calc(100% - 20px);
 }
 
-.slider .noUi-tooltip{
+.slider .noUi-tooltip {
   background: none;
   border: none;
   right: unset;
   top: -30px;
-  &:after{
-    content: '€';
+  &:after {
+    content: "€";
   }
 }
 
-.v-catalogue__title{
+.v-catalogue__title {
   margin-bottom: 50px;
 }
 
-.noUi-horizontal .noUi-handle{
+.noUi-horizontal .noUi-handle {
   top: -16px;
 }
-.slider .noUi-handle{
-  background-image: url('~@/assets/images/logo.png');
+.slider .noUi-handle {
+  background-image: url("~@/assets/images/logo.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -168,20 +165,19 @@ h1{
   background-color: transparent;
   box-shadow: none;
   height: 45px;
-  &:after, &:before{
+  &:after,
+  &:before {
     display: none;
   }
 }
 
-
-.slider__title{
+.slider__title {
   margin-bottom: 30px;
 }
 
-.noUi-connect{
-  background-color: #f5e44c
+.noUi-connect {
+  background-color: #f5e44c;
 }
-
 
 @import "~vue-range-slider/dist/vue-range-slider.scss";
 @import "~nouislider/distribute/nouislider.css";

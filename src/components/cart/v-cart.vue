@@ -13,6 +13,7 @@
         <div class="v-cart__total-price-wrapper">
             <p class="v-cart__total-name">Total price:</p>
             <p>{{cartTotalCost}}€.</p>
+            <p>{{cartTotalCostUSD}}€.</p>
         </div>
 
     </div>
@@ -33,6 +34,10 @@ export default {
         }
     },
     computed:{
+        ...mapGetters([    
+            "CART",
+            "USD"
+        ]),
         cartTotalCost(){
             let result = [];
             if (this.CART.length){
@@ -48,9 +53,11 @@ export default {
                 return 0;
             }       
         },
-        ...mapGetters([    
-            "CART",
-        ]),
+        cartTotalCostUSD(){
+            const usdCost = this.cartTotalCost * this.USD;
+            return usdCost;
+        },
+   
     },
     methods:{
         ...mapActions([
@@ -67,7 +74,6 @@ export default {
         },
         decrement(index){
             this.DECREMENT_CART_ITEM(index);
- 
         },
     }
 

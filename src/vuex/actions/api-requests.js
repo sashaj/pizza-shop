@@ -20,15 +20,19 @@ export default {
                 return error;
             }))
     },
-    GET_CURRENCY_RATES({ commit}){
+    GET_CURRENCY_RATES({ commit }){
         return axios('https://api.exchangeratesapi.io/latest',{
-            methods: "GET"
+            method: "GET"
         })
             .then(rates =>{
                 if(rates){
-                    console.log(rates);
-                    console.log(commit)
+                    commit('SET_USD_RATE', rates);
+                    return rates
                 }
             })
+            .catch((error => {
+                console.log(error)
+                return error;
+            }))
     }
 }
