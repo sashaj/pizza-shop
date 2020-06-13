@@ -2,20 +2,18 @@
   <div class="v-header">
     <div class="v-header__left">
       <router-link :to="{name: 'main-page'}">
-        <!-- <i class="material-icons logo">local_pizza</i> -->
         <div class="logo__wrapper">
          <img :src="require('../../assets/images/logo.png')" alt="">
         </div>
       </router-link>
-      <div class="">
-最高のピザ</div>
+      <span class="v-header__logo-title">Alonso</span>
+
     </div>
     <div class="v-header__right">
-      <router-link :to="{ name: 'cart' }" class="v-header__link-to-cart">
-        <i class="material-icons">shopping_basket</i>
-        {{ TOTAL_CART_ITEMS }}
+      <router-link :to="{name: 'catalogue' }" v-if="$route.name=='cart'">   
+            <div class="v-header__link-to-catalogue btn">To Menu</div>
       </router-link>
-      <div class="search__wrapper">    
+      <div class="search__wrapper" v-if="$route.name=='catalogue'">    
           <input
             type="text"
             name
@@ -27,6 +25,10 @@
             <i class="material-icons" @click="search(searchValue)">search</i>
           </button>        
       </div>    
+      <router-link :to="{ name: 'cart' }" class="v-header__link-to-cart btn" v-if="$route.name=='catalogue'">
+        <i class="material-icons">shopping_basket</i>
+        {{ TOTAL_CART_ITEMS }}
+      </router-link>
 
     </div>
   </div>
@@ -60,6 +62,9 @@ export default {
   },
   computed: {
     ...mapGetters(["TOTAL_CART_ITEMS"])
+  },
+  mounted(){
+    console.log(this.$route)
   }
 };
 </script>
@@ -89,7 +94,7 @@ export default {
     color: black;
     display: flex;
     position: relative;
-    margin-left: 30px;
+    margin-right: 30px;
   }
   .logo {
     font-size: 80px;
@@ -107,11 +112,18 @@ export default {
     .material-icons {
       margin-right: 15px;
       color: #80807e;
+      &:hover{
+        color: black;
+      }
     }
   }
   .seach_btn {
    border: 1px solid #80807e;
    border-left: none;
+   width: 35px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
   }
   .v-header__right{
     width: 100%;
@@ -121,5 +133,17 @@ export default {
   .logo__wrapper{
     width: 80px;
   }
+}
+
+.v-header .v-header__link-to-catalogue{
+    border: solid 1px gray;
+    height: 45px;
+    margin-right: 30px;
+}
+
+.v-cart-item__name{
+  text-align: left;
+  width: 30%;
+  margin-right: 15px;
 }
 </style>

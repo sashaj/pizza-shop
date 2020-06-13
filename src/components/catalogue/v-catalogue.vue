@@ -128,12 +128,16 @@ h1{
   &__right{
     display: flex;
     flex-direction: column;
+    width: 100%;
+    padding-left: 25px;
+    padding-right: 25px;
   }
 }
 .slider{
   margin-left: 10px;
-   margin-bottom: 30px;
-  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  width: calc(100% - 20px);
 }
 
 .slider .noUi-tooltip{

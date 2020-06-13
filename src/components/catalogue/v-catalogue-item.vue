@@ -32,8 +32,12 @@
 
     <p class="v-catalogue-item__description">{{ product_data.description }}</p>
     <div class="v-catalogue-time__btns">
-      <button class="v-catalogue-item__show_info btn" @click="showPopupInfo">show info</button>
-      <button class="v-catalogue-item__add_to_cart_btn btn" @click="addToCart">Add to cart</button>
+      <button class="v-catalogue-item__show_info btn" @click="showPopupInfo">
+        <i class="material-icons">info</i>
+      </button>
+      <button class="v-catalogue-item__add_to_cart_btn btn" @click="addToCart">
+        <i class="material-icons">add_shopping_cart</i>
+      </button>
     </div>
   </div>
 </template>
@@ -85,7 +89,7 @@ export default {
 }
 .v-catalogue-item__price {
   text-align: right;
-    font-family: "FiraSans";
+  font-family: "FiraSans";
   font-size: 15px;
 
   &:after {
@@ -101,13 +105,12 @@ export default {
   font-family: "FiraSans";
   margin-bottom: 20px;
   text-align: left;
-    font-size: 15px;
-
+  font-size: 15px;
 }
 
 .v-catalogue-item__description {
   text-align: left;
-  height: 76px;
+  height: 95px;
   margin-bottom: 15px;
 }
 
@@ -128,13 +131,21 @@ export default {
   transition-timing-function: ease-in-out;
   color: #80807e;
   outline: none;
-  border-radius: 8px;
+  border-radius: 2px;
   padding: 0px 12px;
   overflow: hidden;
   background: rgb(255, 255, 255);
   border-width: 1px;
   border-style: solid;
   border-color: #80807e;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+}
+
+.btn:hover {
+  color: black;
+  border-color: black;
 }
 
 .v-catalogue-time__btns {

@@ -1,8 +1,5 @@
 <template>
     <div class="v-cart">
-        <!-- <router-link :to="{name: 'catalogue' }">   
-            <div class="v-cart__link-to-catalogue">To catalogue</div>
-        </router-link> -->
         <h1>Basket </h1>
         <p v-if='!CART.length'>there are no products in basket...</p>
         <vCartItem
@@ -13,10 +10,11 @@
             @increment='increment(index)'
             @decrement='decrement(index)'
         />
-        <div class="v-cart__total">
-            <p class="total__name">Total:</p>
-            <p>{{cartTotalCost}}Р.</p>
+        <div class="v-cart__total-price-wrapper">
+            <p class="v-cart__total-name">Total price:</p>
+            <p>{{cartTotalCost}}€.</p>
         </div>
+
     </div>
 </template>
 
@@ -80,28 +78,12 @@ export default {
 .v-cart{
     width: 100%;
     margin-bottom: 100px;
+    max-width: 600px;
 }
-.v-cart__link-to-catalogue{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    padding: $padding*2;
-    border: solid 1px gray;
-}
-.v-cart__total {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    padding: $padding*3;
-    display: flex;
-    justify-content: center;
-    color: #fff;
-    font-size: 20px;
-    background: green;
-}
-.total__name{
-    margin-right: $margin*2;
 
+.v-cart__total-price-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 </style>

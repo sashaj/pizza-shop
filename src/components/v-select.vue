@@ -3,7 +3,7 @@
     <p class="v-select__title">Group by size:</p>
     <div class="v-select">
       <p class="v-select__default-option" @click="TOGGLE_OPTIONS_VISIBILITY()">{{SELECTED_OPTION}}</p>
-      <div class="options" v-if="ARE_OPTIONS_VISIBLE">
+      <div class="v-select__options" v-if="ARE_OPTIONS_VISIBLE">
         <p v-for="option in SELECT_OPTIONS" :key="option.value" @click="SORT_BY_CATEGORIES(option)">{{option.name}}</p>
       </div>
     </div>
@@ -48,7 +48,7 @@ export default {
   margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 .v-select {
   position: relative;
@@ -62,26 +62,26 @@ export default {
 }
 .v-select__default-option {
   border: solid 1px gray;
-  padding: 15px 10px;
+  padding: 10px;
 }
 
-.options {
+.v-select__options {
   border: solid 1px gray;
   border-top: none;
   position: absolute;
-  top: 50px;
+  top: 100%;
   right: 0;
   width: 100%;
   z-index: 2;
   background: white;
 }
 
-.options p {
-  padding: 15px 10px;
+.v-select__options p {
+  padding: 10px;
   margin: 0;
 }
 
-.options p:hover {
+.v-select__options p:hover {
   background: #e7e7e7;
 }
 
