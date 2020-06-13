@@ -1,7 +1,7 @@
 <template>
     <div class="v-cart">
         <h1>Basket </h1>
-        <p v-if='!CART.length'>there are no products in basket...</p>
+        <p v-show='!CART.length'>there are no products in basket...</p>
         <vCartItem
             v-for="(item, index) in CART"
             :key='item.article'
@@ -10,12 +10,14 @@
             @increment='increment(index)'
             @decrement='decrement(index)'
         />
-        <div class="v-cart__total-price-wrapper">
-            <p class="v-cart__total-name">Total price:</p>
-            <p>{{cartTotalCost}}€.</p>
-            <p>{{cartTotalCostUSD}}€.</p>
+        <div class="v-cart__total-price-wrapper" v-show="CART.length">
+            <p class="v-cart__total-title">Total price:</p>
+            <p class="v-cart__total-currency">{{cartTotalCost}}€</p>
+            <p class="v-cart__total-currency">{{cartTotalCostUSD}}$</p>
         </div>
-
+        <router-link :to="{name: 'order-form' }" v-show="CART.length">   
+            <div class="link-to-order btn">Proceed</div>
+        </router-link>
     </div>
 </template>
 
@@ -55,9 +57,9 @@ export default {
         },
         cartTotalCostUSD(){
             const usdCost = this.cartTotalCost * this.USD;
-            return usdCost;
+            return usdCost.toFixed(2);
+
         },
-   
     },
     methods:{
         ...mapActions([
@@ -92,4 +94,15 @@ export default {
     flex-direction: column;
     align-items: flex-end;
 }
+
+.v-cart__total-title{
+    font-family: FiraSans;
+    font-size: 20px;
+}
+
+.v-cart__total-currency{
+    font-family: FiraSans;
+    font-size: 20px;
+}
+
 </style>

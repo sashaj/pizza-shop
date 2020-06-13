@@ -10,7 +10,7 @@
 
     </div>
     <div class="v-header__right">
-      <router-link :to="{name: 'catalogue' }" v-if="$route.name=='cart'">   
+      <router-link :to="{name: 'catalogue' }" v-if="$route.name !== 'catalogue'">   
             <div class="v-header__link-to-catalogue btn">To Menu</div>
       </router-link>
       <div class="search__wrapper" v-if="$route.name=='catalogue'">    
@@ -25,7 +25,7 @@
             <i class="material-icons" @click="search(searchValue)">search</i>
           </button>        
       </div>    
-      <router-link :to="{ name: 'cart' }" class="v-header__link-to-cart btn" v-if="$route.name=='catalogue'">
+      <router-link :to="{ name: 'cart' }" class="v-header__link-to-cart btn" v-if="$route.name !== 'cart'">
         <i class="material-icons">shopping_basket</i>
         {{ TOTAL_CART_ITEMS }}
       </router-link>
@@ -108,6 +108,7 @@ export default {
     align-items: center;
     width: 90px;
     border: solid 1px #80807e;
+    margin-left: 30px;
 
     .material-icons {
       margin-right: 15px;
@@ -138,12 +139,16 @@ export default {
 .v-header .v-header__link-to-catalogue{
     border: solid 1px gray;
     height: 45px;
-    margin-right: 30px;
+
 }
 
 .v-cart-item__name{
   text-align: left;
   width: 30%;
   margin-right: 15px;
+}
+
+.v-header{
+  margin-bottom: 40px;   
 }
 </style>
