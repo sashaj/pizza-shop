@@ -8,15 +8,15 @@
 </template>
 
 <script>
- import vHeader from './layouts/v-header.vue'
+import vHeader from "./layouts/v-header.vue";
 export default {
   name: "v-main-wrapper",
   components: {
     vHeader,
   },
-  data: function() {
+  data: function () {
     return {
-      title: "Main wrapper"
+      title: "Main wrapper",
     };
   },
 };
@@ -27,9 +27,9 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 82px;
   margin: 0 auto;
   flex-direction: column;
   max-width: 1200px;
+  padding-top: 40px;
 }
 </style>
