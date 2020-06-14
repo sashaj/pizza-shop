@@ -1,22 +1,31 @@
 <template>
   <div class="v-catologue-item">
-    <v-popup
-      v-if="isPopupVisible"
-      @closePopup="closeInfoPopup"
-      @rightBtnAction="addToCart"
-      rightBtnTitle="add to cart"
-      modalTitle="Info"
-    >
-      <div class="v-catalogue-item__image-wrapper">
-        <img
-          class="v-catalogue-item__image"
-          :src="require('../../assets/images/' + product_data.image)"
-        />
-      </div>
-      <div class="popup__info">
-        <p class="v-catalogue-item__name">{{ product_data.name }}</p>
-        <p class="v-catalogue-item__price">{{ product_data.price }}</p>
-        <p class="v-catalogue-item__price">Category: {{ product_data.category }}</p>
+    <v-popup v-if="isPopupVisible" @closePopup="closeInfoPopup">
+      <div class="v-popup-item">
+        <div class="v-popup-item__image-wrapper">
+          <img
+            class="v-catalogue-item__image"
+            :src="require('../../assets/images/' + product_data.image)"
+          />
+        </div>
+        <p class="v-popup-item__name">{{ product_data.name }}</p>
+        <p class="v-popup-item__description">
+          {{ product_data.description }}
+        </p>
+        <div class="v-popup-item__info">
+          <p class="v-popup-item__price">Price: {{ product_data.price }}€</p>
+          <p class="v-popup-item__size">Size: {{ product_data.category }}</p>
+          <p class="v-popup-item__size">
+            Calories: {{ getRandomInfo[0] }}kcal.
+          </p>
+          <p class="v-popup-item__size">Weight: {{ getRandomInfo[1] }}g.</p>
+        </div>
+        <button
+          class="v-catalogue-item__add_to_cart_btn btn"
+          @click="addToCart"
+        >
+          <i class="material-icons">add_shopping_cart</i>
+        </button>
       </div>
     </v-popup>
     <div class="v-catalogue-item__image-wrapper">
@@ -47,16 +56,20 @@ import vPopup from "../popup/v-popup";
 export default {
   name: "v-catalogue-item",
   components: {
-    vPopup
+    vPopup,
   },
-
+  data() {
+    return {
+      isPopupVisible: false,
+    };
+  },
   props: {
     product_data: {
       type: Object,
-      default: function() {
+      default: function () {
         return {};
-      }
-    }
+      },
+    },
   },
   methods: {
     addToCart() {
@@ -67,13 +80,25 @@ export default {
     },
     showPopupInfo() {
       this.isPopupVisible = true;
-    }
+    },
+    getRandomInt(min, max) {
+      return parseInt(Math.random() * (max - min) + min);
+    },
   },
-  data() {
-    return {
-      isPopupVisible: false
-    };
-  }
+  computed: {
+    getRandomInfo() {
+      switch (this.product_data.category) {
+        case "small":
+          return [this.getRandomInt(220, 300), this.getRandomInt(390, 410)];
+        case "medium":
+          return [this.getRandomInt(350, 450), this.getRandomInt(590, 610)];
+        case "big":
+          return [this.getRandomInt(500, 470), this.getRandomInt(740, 750)];
+        default:
+          return 0;
+      }
+    },
+  },
 };
 </script>
 
@@ -151,5 +176,53 @@ export default {
 .v-catalogue-time__btns {
   display: flex;
   justify-content: space-between;
+}
+
+.v-popup-item__image-wrapper {
+  width: 250px;
+  margin: 0 auto 20px;
+}
+
+.v-popup-item {
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
+}
+
+.v-popup-item__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.v-popup-item__name {
+  align-self: flex-start;
+  font-family: "FiraSans";
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 15px;
+}
+.v-popup-item__info {
+  align-self: flex-start;
+}
+
+.v-popup-item__price {
+  font-size: 15px;
+  text-align: left;
+}
+.v-popup-item__description {
+  max-width: 350px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.v-popup-item__info p {
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+
+.v-popup .v-catalogue-item__add_to_cart_btn {
+  margin-left: auto;
+  margin-right: unset;
 }
 </style>

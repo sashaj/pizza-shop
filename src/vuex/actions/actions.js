@@ -37,5 +37,8 @@ export default{
     },
     SLIDER_SEARCH({commit}){
         commit("SLIDER_SEARCH")
+    },
+    FILTER_SEARCH({commit}){
+        commit("FILTER_SEARCH")
     }
 }
