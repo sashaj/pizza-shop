@@ -5,6 +5,7 @@ export default {
   total_cart_items: 0,
   sorted_products: [],
   cart_item_data: [],
+  isFormSubmitted: false,
   select_options: [
     {
       name: "all",

@@ -7,7 +7,7 @@
         <li :key="error.name" v-for="error in formErrors">{{ error }}</li>
       </ul>
     </div>
-    <form class="v-order-form__form">
+    <form class="v-order-form__form" ref="deliveryForm">
       <input
         v-model="phone"
         name="phone"
@@ -36,6 +36,8 @@
 </template>
 
 <script>
+import {mapActions, mapGetters} from 'vuex';
+
 export default {
   data() {
     return {
@@ -46,15 +48,29 @@ export default {
     };
   },
   methods: {
+    ...mapActions([
+        "SEND_FORM"
+    ]),
     checkForm(e) {
       e.preventDefault();
-      if (this.phone && this.houseNumber && this.street) return true;
-      this.formErrors = [];
-      if (!this.phone) this.formErrors.push("*Phone is required.");
-      if (!this.houseNumber) this.formErrors.push("*House number is required.");
-      if (!this.street) this.formErrors.push("*Street is required.");
+      if (this.phone && this.houseNumber && this.street){
+        const form = this.$refs.deliveryForm
+        const fd = new FormData(form);
+        this.SEND_FORM(fd);
+      } else{
+          this.formErrors = [];
+          if (!this.phone) this.formErrors.push("*Phone is required.");
+          if (!this.houseNumber) this.formErrors.push("*House number is required.");
+          if (!this.street) this.formErrors.push("*Street is required.");
+      }
     },
+ 
   },
+  computed: {
+    ...mapGetters([
+      "ISFORMSUBMITTED"
+    ])
+  }
 };
 </script>
 

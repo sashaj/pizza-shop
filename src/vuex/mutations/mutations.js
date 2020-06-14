@@ -93,5 +93,8 @@ export default {
   },
   SET_USD_RATE: (state, rates) => {
     state.usd = rates.data.rates.USD;
+  },
+  FORM_SUBMITTED_TOGGLE: state =>{
+    state.isFormSubmitted = !state.isFormSubmitted;
   }
 };

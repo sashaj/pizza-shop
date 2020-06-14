@@ -34,5 +34,23 @@ export default {
                 console.log(error)
                 return error;
             }))
+    },
+    SEND_FORM({commit}, form){
+        axios({
+            method: 'post',
+            url: 'https://cors-anywhere.herokuapp.com/reqres.in/api/users',
+            data: form,
+            validateStatus: () => true
+        })
+            .then(res => {
+               if (res){
+                   console.log('form submitted');
+               }
+            })
+            .catch((error => {
+                commit('SET_OFFLINE_DATA');
+                console.log(error)
+                return error;
+            }))
     }
 }

@@ -28,5 +28,8 @@ export default {
     },
     USD(state){
         return state.usd;
+    },
+    ISFORMSUBMITTED(state){
+        return state.isFormSubmitted;
     }
 }
