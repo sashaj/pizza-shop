@@ -53,11 +53,10 @@ export default {
     ...mapActions([
       "GET_PRODUCTS_FROM_API",
       "ADD_TO_CART",
-      "SORT_BY_CATEGORIES",
       "NOUISLIDER_CURRENT_VALUES",
       "SEARCH_PRODUCTS",
-      "SLIDER_SEARCH",
-      "GET_CURRENCY_RATES"
+      "GET_CURRENCY_RATES",
+      "FILTER_SEARCH"
     ]),
     addToCart(data) {
       console.log(data);
@@ -68,7 +67,7 @@ export default {
   mounted() {
     const slider = this.$refs.slider;
     this.GET_PRODUCTS_FROM_API().then(() => {
-      this.SORT_BY_CATEGORIES();
+      this.FILTER_SEARCH();
     });
     noUiSlider.create(slider, {
       start: [this.NOUISLIDER_CONFIG.start, this.NOUISLIDER_CONFIG.end],
@@ -86,16 +85,23 @@ export default {
           return parseInt(value);
         }
       },
-      // direction: 'rtl',
-      // orientation: 'vertical',
       connect: true
     });
     this.NOUISLIDER_CURRENT_VALUES(slider.noUiSlider.get());
     slider.noUiSlider.on("change", () => {
       this.NOUISLIDER_CURRENT_VALUES(slider.noUiSlider.get());
-      this.SLIDER_SEARCH();
+      this.FILTER_SEARCH();
     });
     this.GET_CURRENCY_RATES();
+    this.$root.$on('refreshUiSlider', () => {
+      slider.noUiSlider.updateOptions({
+    range: {
+        'min': this.NOUISLIDER_CONFIG.rangeStart,
+        'max': this.NOUISLIDER_CONFIG.rangeEnd
+    }
+});
+    });
+
   },
   data() {
     return {};

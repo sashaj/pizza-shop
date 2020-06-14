@@ -59,6 +59,7 @@ export default {
       this.SET_SEARCH_VALUE(value);
       if (value) {
         this.SEARCH_PRODUCTS();
+        this.$root.$emit('refreshUiSlider');
       }
       if (this.$route.path !== "/catalogue") {
         this.$router.push("/catalogue");

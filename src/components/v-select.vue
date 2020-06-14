@@ -4,7 +4,7 @@
     <div class="v-select">
       <p class="v-select__default-option" @click="TOGGLE_OPTIONS_VISIBILITY()">{{SELECTED_OPTION}}</p>
       <div class="v-select__options" v-if="ARE_OPTIONS_VISIBLE">
-        <p v-for="option in SELECT_OPTIONS" :key="option.value" @click="SORT_BY_CATEGORIES(option)">{{option.name}}</p>
+        <p v-for="option in SELECT_OPTIONS" :key="option.value" @click="launchFilterSearch(option);">{{option.name}}</p>
       </div>
     </div>
   </div>
@@ -21,6 +21,7 @@ export default {
         "SELECT_OPTIONS",
         "SELECTED_OPTION",
         'ARE_OPTIONS_VISIBLE',
+        "NOUISLIDER_CURRENT_VALUES"
     ]),
   },
   methods: {
@@ -29,8 +30,12 @@ export default {
           'TOGGLE_OPTIONS_VISIBILITY',
           'OPTION_SELECT',
           'TURNOFF_SELECT_VISIBILITY',
-          'SORT_BY_CATEGORIES',
+          "FILTER_SEARCH",
       ]),
+    launchFilterSearch(option){
+      this.OPTION_SELECT(option);
+      this.FILTER_SEARCH();
+    }
   },
 
   mounted() {

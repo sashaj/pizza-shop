@@ -20,9 +20,7 @@ export default{
     OPTION_SELECT( {commit}, option){
         commit("OPTION_SELECT", option)
     },
-    SORT_BY_CATEGORIES({commit}, category, searchValue){
-        commit("SORT_BY_CATEGORIES", category, searchValue);
-    },
+
     TURNOFF_SELECT_VISIBILITY({ commit }){
         commit("TURNOFF_SELECT_VISIBILITY");
     },
@@ -35,10 +33,8 @@ export default{
     SEARCH_PRODUCTS({commit}, searchValue){
         commit("SEARCH_PRODUCTS", searchValue);
     },
-    SLIDER_SEARCH({commit}){
-        commit("SLIDER_SEARCH")
-    },
-    FILTER_SEARCH({commit}){
-        commit("FILTER_SEARCH")
+
+    FILTER_SEARCH({commit}, filterValues){
+        commit("FILTER_SEARCH", filterValues)
     }
 }

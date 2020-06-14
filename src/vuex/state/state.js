@@ -35,7 +35,6 @@ export default {
     rangeStart: 0,
     rangeEnd: 30,
     currentValues: [12, 30],
-
   },
   offline_data: {
     "products": [
