@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   GET_PRODUCTS_FROM_API({ commit }) {
-    return axios("http://localhost:8080/products", {
+    return axios("/", {
       method: "GET",
       withCredentials: false,
     })
@@ -42,7 +42,7 @@ export default {
 
     axios({
       method: "post",
-      url: "http://localhost:8080/form",
+      url: "/form",
       data: form,
       withCredentials: false,
     })
