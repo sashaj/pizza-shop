@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   GET_PRODUCTS_FROM_API({ commit }) {
-    return axios("/", {
+    return axios("https://allonzo-pizza.herokuapp.com/products", {
       method: "GET",
       withCredentials: false,
     })
@@ -42,7 +42,7 @@ export default {
 
     axios({
       method: "post",
-      url: "/form",
+      url: "https://allonzo-pizza.herokuapp.com/form",
       data: form,
       withCredentials: false,
     })
