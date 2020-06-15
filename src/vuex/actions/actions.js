@@ -1,5 +1,4 @@
 export default{
-
     ADD_TO_CART({ commit }, product) {
         commit('SET_CART', product);
         commit('CALCULATE_TOTAL_CART_ITEMS');
@@ -20,7 +19,6 @@ export default{
     OPTION_SELECT( {commit}, option){
         commit("OPTION_SELECT", option)
     },
-
     TURNOFF_SELECT_VISIBILITY({ commit }){
         commit("TURNOFF_SELECT_VISIBILITY");
     },
@@ -33,8 +31,13 @@ export default{
     SEARCH_PRODUCTS({commit}, searchValue){
         commit("SEARCH_PRODUCTS", searchValue);
     },
-
     FILTER_SEARCH({commit}, filterValues){
         commit("FILTER_SEARCH", filterValues)
+    },
+    TOGGLE_FORM_SUBMITTED({ commit }){
+        commit("FORM_SUBMITTED_TOGGLE");
+    },
+    NULLIFY_CART({commit}){
+        commit("NULLIFY_CART");
     }
 }

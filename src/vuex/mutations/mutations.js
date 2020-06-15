@@ -21,11 +21,19 @@ export default {
       state.cart.push(product);
     }
   },
-  CALCULATE_TOTAL_CART_ITEMS: (state) => {
+  CALCULATE_TOTAL_CART_ITEMS: state => {
     state.total_cart_items = 0;
+
     for (let i = 0; i < state.cart.length; i++) {
       state.total_cart_items += state.cart[i].quantity
     }
+  },
+  NULLIFY_CART: (state)=>{
+    state.total_cart_items = 0;
+    for (let i = 0; i < state.cart.length; i++) {
+      state.cart[i].quantity=1
+    }
+    state.cart = [];
   },
   REMOVE_FROM_CART: (state, index) => {
     state.cart[index].quantity = 1;
@@ -96,5 +104,6 @@ export default {
   },
   FORM_SUBMITTED_TOGGLE: state =>{
     state.isFormSubmitted = !state.isFormSubmitted;
-  }
+  },
+
 };

@@ -43,7 +43,7 @@ export default {
         result = result.reduce(function (sum, el) {
           return sum + el;
         });
-        console.log(result);
+  
         return result;
       } else {
         return 0;
@@ -64,7 +64,6 @@ export default {
       this.DELETE_FROM_CART(index);
     },
     increment(index) {
-      console.log(this);
       this.INCREMENT_CART_ITEM(index);
     },
     decrement(index) {

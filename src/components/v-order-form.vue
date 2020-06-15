@@ -1,6 +1,15 @@
 <template>
   <div class="v-order-form">
     <h1>Delivery Information</h1>
+    <v-popup v-show="ISFORMSUBMITTED" @closePopup="closeDeliveryPopup">
+      <div class="v-order-form__popup">
+        <div class="v-order-form__image">
+          <img :src="require('./../assets/images/logo.png')" alt="" />
+        </div>
+        <p class="v-order-form__success">You order has been successfully submitted!</p>
+      </div>  
+    </v-popup>
+
     <div v-show="formErrors.length" class="v-order-form__errors-wrapper">
       <span>Please correct the following error(s):</span>
       <ul>
@@ -37,8 +46,12 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
+import vPopup from "./popup/v-popup";
 
 export default {
+   components: {
+    vPopup,
+  },
   data() {
     return {
       phone: null,
@@ -49,7 +62,9 @@ export default {
   },
   methods: {
     ...mapActions([
-        "SEND_FORM"
+        "SEND_FORM",
+        "TOGGLE_FORM_SUBMITTED",
+        "NULLIFY_CART"
     ]),
     checkForm(e) {
       e.preventDefault();
@@ -64,11 +79,16 @@ export default {
           if (!this.street) this.formErrors.push("*Street is required.");
       }
     },
- 
+    closeDeliveryPopup() {
+      this.NULLIFY_CART();
+      this.TOGGLE_FORM_SUBMITTED();          
+      this.$router.push("/catalogue");
+
+    },
   },
   computed: {
     ...mapGetters([
-      "ISFORMSUBMITTED"
+      "ISFORMSUBMITTED",
     ])
   }
 };
@@ -106,5 +126,15 @@ textarea {
 .v-order-form__errors-wrapper span {
   margin-bottom: 10px;
   display: block;
+}
+.v-order-form__image{
+  width: 200px;
+  margin-bottom: 30px;
+
+}
+.v-order-form__popup{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>

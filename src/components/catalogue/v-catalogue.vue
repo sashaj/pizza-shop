@@ -59,9 +59,8 @@ export default {
       "FILTER_SEARCH"
     ]),
     addToCart(data) {
-      console.log(data);
       this.ADD_TO_CART(data);
-    }
+    },
   },
 
   mounted() {

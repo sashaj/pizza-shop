@@ -69,9 +69,6 @@ export default {
   computed: {
     ...mapGetters(["TOTAL_CART_ITEMS"]),
   },
-  mounted() {
-    console.log(this.$route);
-  },
 };
 </script>
 
