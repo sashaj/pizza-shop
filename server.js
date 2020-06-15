@@ -6,6 +6,8 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
+const serveStatic = require("serve-static");
+const path = require("path");
 
 // defining the Express app
 const app = express();
@@ -181,6 +183,7 @@ const products = [
 
 // adding Helmet to enhance your API's security
 app.use(helmet());
+app.use(serveStatic(path.join(__dirname, "dist")));
 
 // using bodyParser to parse JSON bodies into JS objects
 app.use(bodyParser.json());
