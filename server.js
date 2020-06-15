@@ -14,7 +14,8 @@ var morgan = require("morgan");
 
 var serveStatic = require("serve-static");
 
-var path = require("path"); // defining the Express app
+var path = require("path");
+// defining the Express app
 
 var app = express(); // defining an array to work as the database (temporary solution)
 // const products = [{ title: "Hello, world (again)!" }];
@@ -186,13 +187,17 @@ var products = [
 ]; // adding Helmet to enhance your API's security
 
 // app.use(helmet());
-app.use(serveStatic(path.join(__dirname, "dist"))); // using bodyParser to parse JSON bodies into JS objects
+app.use(serveStatic(path.join(__dirname, "dist")));
+// using bodyParser to parse JSON bodies into JS objects
 
-app.use(bodyParser.json()); // enabling CORS for all requests
+app.use(bodyParser.json());
+// enabling CORS for all requests
 
-app.use(cors()); // adding morgan to log HTTP requests
+app.use(cors());
+// adding morgan to log HTTP requests
 
-app.use(morgan("combined")); // defining an endpoint to return all ads
+app.use(morgan("combined"));
+// defining an endpoint to return all ads
 
 app.get("/products", function (req, res) {
   res.send(products);
@@ -203,8 +208,9 @@ app.post("/form", function (req, res) {
       message: "got form",
     });
   }
-}); // starting the server
+});
+// starting the server
 
-app.listen(8080, function () {
+app.listen(process.env.PORT || 8080, function () {
   console.log("listening on port 8080");
 });
