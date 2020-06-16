@@ -29,7 +29,8 @@ export default {
   align-items: center;
   margin: 0 auto;
   flex-direction: column;
-  max-width: 1200px;
+  max-width: 1250px;
+  padding: 0 25px;
   padding-top: 40px;
 }
 </style>

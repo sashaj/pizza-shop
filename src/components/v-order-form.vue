@@ -83,7 +83,6 @@ export default {
       this.NULLIFY_CART();
       this.TOGGLE_FORM_SUBMITTED();          
       this.$router.push("/");
-
     },
   },
   computed: {
@@ -95,6 +94,11 @@ export default {
 </script>
 
 <style lang="scss">
+.v-order-form{
+  padding: 0 15px;
+  max-width: 350px;
+  width: 100%;
+}
 .v-order-form__form {
   display: flex;
   flex-direction: column;

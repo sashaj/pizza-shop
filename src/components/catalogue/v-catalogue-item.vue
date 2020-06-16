@@ -28,10 +28,11 @@
         </button>
       </div>
     </v-popup>
-    <div class="v-catalogue-item__image-wrapper">
+    
+    <div class="v-catalogue-item__image-wrapper" @click="showPopupInfo">
       <img
         class="v-catalogue-item__image"
-        :src="require('../../assets/images/' + product_data.image)"
+        :src="require('../../assets/images/' + product_data.image)"        
       />
     </div>
     <div class="v-catalogue-item__main-info">
@@ -111,6 +112,18 @@ export default {
   display: inline-block;
   text-align: center;
   vertical-align: inherit;
+  @media (max-width: 1000px){
+    width: 25%;
+  }
+  @media (max-width: 768px){
+    width: 33%;
+  }
+  @media (max-width: 600px){
+    width: 50%;
+  }
+  @media (max-width: 400px){
+    width: 100%;
+  }
 }
 .v-catalogue-item__price {
   text-align: right;
@@ -124,6 +137,7 @@ export default {
 
 .v-catalogue-item__image-wrapper {
   width: 100%;
+  cursor: pointer;
 }
 
 .v-catalogue-item__name {
@@ -131,12 +145,14 @@ export default {
   margin-bottom: 20px;
   text-align: left;
   font-size: 15px;
+  height: 36px;
 }
 
 .v-catalogue-item__description {
   text-align: left;
   height: 95px;
   margin-bottom: 15px;
+  overflow: hidden;
 }
 
 .v-catalogue-item__main-info {

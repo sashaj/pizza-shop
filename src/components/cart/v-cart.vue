@@ -13,6 +13,7 @@
     <div class="v-cart__total-price-wrapper" v-show="CART.length">
       <p class="v-cart__total-title">Total price:</p>
       <p class="v-cart__total-currency">{{ cartTotalCost }}€</p>
+      <p class="v-cart__total-currency">or</p>
       <p class="v-cart__total-currency">{{ cartTotalCostUSD }}$</p>
     </div>
     <router-link :to="{ name: 'order-form' }" v-show="CART.length">
@@ -90,6 +91,7 @@ export default {
 .v-cart__total-title {
   font-family: FiraSans;
   font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .v-cart__total-currency {

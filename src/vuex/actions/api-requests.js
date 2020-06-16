@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default {
   GET_PRODUCTS_FROM_API({ commit }) {
-    const url = "http://localhost:8081";
+    const url = "http://localhost:8081/products";
     //const url = "https://allonzo-pizza.herokuapp.com/products";
     return axios(url, {
       method: "GET",

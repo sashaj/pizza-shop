@@ -96,6 +96,9 @@ export default {
     display: flex;
     position: relative;
     margin-right: 30px;
+    @media (max-width: 600px){
+      display: none;
+    }
   }
   .logo {
     font-size: 80px;
@@ -142,11 +145,7 @@ export default {
   height: 45px;
 }
 
-.v-cart-item__name {
-  text-align: left;
-  width: 30%;
-  margin-right: 15px;
-}
+
 
 .v-header__logo-title {
   font-family: "FiraSans";

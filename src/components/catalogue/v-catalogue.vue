@@ -25,7 +25,7 @@ import vSelect from "../v-select";
 import { mapActions, mapGetters } from "vuex";
 import noUiSlider from "nouislider";
 
-export default {
+export default { 
   name: "v-catalogue",
   components: {
     vCatalogueItem,
@@ -133,6 +133,10 @@ h1 {
     width: 100%;
     padding-left: 25px;
     padding-right: 25px;
+    @media (max-width: 1000px){
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }
 .slider {
