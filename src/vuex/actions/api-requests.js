@@ -2,7 +2,9 @@ import axios from "axios";
 
 export default {
   GET_PRODUCTS_FROM_API({ commit }) {
-    return axios("https://allonzo-pizza.herokuapp.com/products", {
+    const url = "http://localhost:8081";
+    //const url = "https://allonzo-pizza.herokuapp.com/products";
+    return axios(url, {
       method: "GET",
       withCredentials: false,
     })
@@ -38,11 +40,11 @@ export default {
       });
   },
   SEND_FORM({ commit }, form) {
-    // commit('FORM_SUBMITTED_TOGGLE');
-
+    const url = "http://localhost:8081"
+    //const url = "https://allonzo-pizza.herokuapp.com/form";
     axios({
       method: "post",
-      url: "https://allonzo-pizza.herokuapp.com/form",
+      url: url,
       data: form,
       withCredentials: false,
     })

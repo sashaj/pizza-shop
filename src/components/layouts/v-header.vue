@@ -1,7 +1,7 @@
 <template>
   <div class="v-header">
     <div class="v-header__left">
-      <router-link :to="{ name: 'main-page' }">
+      <router-link :to="{ name: 'catalogue' }">
         <div class="logo__wrapper">
           <img :src="require('../../assets/images/logo.png')" alt="" />
         </div>
@@ -9,7 +9,7 @@
       </router-link>
     </div>
     <div class="v-header__right">
-      <router-link
+      <router-link 
         :to="{ name: 'catalogue' }"
         v-if="$route.name !== 'catalogue'"
       >
@@ -61,9 +61,7 @@ export default {
         this.SEARCH_PRODUCTS();
         this.$root.$emit('refreshUiSlider');
       }
-      if (this.$route.path !== "/catalogue") {
-        this.$router.push("/catalogue");
-      }
+
     },
   },
   computed: {

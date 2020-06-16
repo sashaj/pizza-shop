@@ -82,7 +82,7 @@ export default {
     closeDeliveryPopup() {
       this.NULLIFY_CART();
       this.TOGGLE_FORM_SUBMITTED();          
-      this.$router.push("/catalogue");
+      this.$router.push("/");
 
     },
   },
