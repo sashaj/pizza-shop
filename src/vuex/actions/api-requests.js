@@ -10,7 +10,6 @@ export default {
     })
       .then((data) => {
         if (data) {
-          console.log(data.data);
           data.data.forEach(function (item) {
             item.quantity = 1;
           });

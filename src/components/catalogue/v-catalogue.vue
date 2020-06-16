@@ -94,17 +94,15 @@ export default {
     this.GET_CURRENCY_RATES();
     this.$root.$on('refreshUiSlider', () => {
       slider.noUiSlider.updateOptions({
-    range: {
-        'min': this.NOUISLIDER_CONFIG.rangeStart,
-        'max': this.NOUISLIDER_CONFIG.rangeEnd
-    }
-});
+        range: {
+            'min': this.NOUISLIDER_CONFIG.rangeStart,
+            'max': this.NOUISLIDER_CONFIG.rangeEnd
+        }
+      });
     });
 
   },
-  data() {
-    return {};
-  }
+ 
 };
 </script>
 
@@ -135,7 +133,7 @@ h1 {
     padding-right: 25px;
     @media (max-width: 1000px){
       padding-left: 0;
-      padding-right: 0;
+      padding-right: 0
     }
   }
 }

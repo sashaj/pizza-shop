@@ -45,7 +45,7 @@
       <button class="v-catalogue-item__show_info btn" @click="showPopupInfo">
         <i class="material-icons">info</i>
       </button>
-      <button class="v-catalogue-item__add_to_cart_btn btn" @click="addToCart">
+      <button class="v-catalogue-item__add_to_cart_btn btn" @click="addToCart" :class="{ active:product_data.article == basketClicked}">
         <i class="material-icons">add_shopping_cart</i>
       </button>
     </div>
@@ -62,6 +62,7 @@ export default {
   data() {
     return {
       isPopupVisible: false,
+      basketClicked: '',
     };
   },
   props: {
@@ -74,7 +75,13 @@ export default {
   },
   methods: {
     addToCart() {
+
+      this.basketClicked = this.product_data.article
       this.$emit("addToCart", this.product_data);
+      setTimeout(()=>{
+        this.basketClicked = ""
+      }, 1000);
+
     },
     closeInfoPopup() {
       this.isPopupVisible = false;
@@ -240,5 +247,10 @@ export default {
 .v-popup .v-catalogue-item__add_to_cart_btn {
   margin-left: auto;
   margin-right: unset;
+}
+.v-catalogue-item__add_to_cart_btn.active{
+  color: green;
+  border-color: green;
+
 }
 </style>
