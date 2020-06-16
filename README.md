@@ -8,6 +8,9 @@ Scss, ES6, Vue.js, Vuex, Vue router.
 Backend:
 Node.js, Express.js
 
+Deployed Link:
+https://allonzo-pizza.herokuapp.com/
+
 ### Previewing Locally
 
 The dist directory is meant to be served by an HTTP server (unless you've configured publicPath to be a relative value), so it will not work if you open dist/index.html directly over file:// protocol. The easiest way to preview your production build locally is using a Node.js static file server, for example serve:
