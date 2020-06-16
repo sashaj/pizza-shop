@@ -8,8 +8,23 @@ Scss, ES6, Vue.js, Vuex, Vue router.
 Backend:
 Node.js, Express.js
 
-Deployed Link:
+Live:
 https://allonzo-pizza.herokuapp.com/
+
+### quick deploy
+
+Run the following commands:
+
+1. yarn
+2. yarn serve
+3. node server.js
+
+You would also need to change api requests link in 'src/actions/api-requests.js' to 'localhost:8080/...'
+Look there form comments.
+
+---
+
+##Vue cli instructions
 
 ### Previewing Locally
 
