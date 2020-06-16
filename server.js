@@ -8,7 +8,7 @@ var bodyParser = require("body-parser");
 
 var cors = require("cors");
 
-var helmet = require("helmet");
+//var helmet = require("helmet");
 
 var morgan = require("morgan");
 
