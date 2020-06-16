@@ -134,6 +134,10 @@ export default {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    @media (max-width: 400px){
+      flex-direction: column;
+      align-items: flex-end;
+    }
   }
   .logo__wrapper {
     width: 80px;
@@ -143,6 +147,9 @@ export default {
 .v-header .v-header__link-to-catalogue {
   border: solid 1px gray;
   height: 45px;
+  @media (max-width: 400px){
+    margin-bottom: 15px;
+  }
 }
 
 
