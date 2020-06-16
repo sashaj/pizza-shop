@@ -1,15 +1,12 @@
-# vuex_shop
+# pizza_shop
 
-This is a study project for understading how data travels with Vue.js
-!in development
-!minimum of css
+This project uses:
 
-this project uses json-server for rest-api services.
-https://www.npmjs.com/package/json-server
-to run the server use this command:
-'json-server --watch db.json'.
+Front:
+Scss, ES6, Vue.js, Vuex, Vue router.
 
-However, it also works without the json server
+Backend:
+Node.js, Express.js
 
 ### Previewing Locally
 
