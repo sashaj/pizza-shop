@@ -11,7 +11,7 @@ Node.js, Express.js
 Live:
 https://allonzo-pizza.herokuapp.com/
 
-### quick deploy
+### quick local deploy
 
 Run the following commands:
 
