@@ -1,11 +1,13 @@
 # pizza_shop
+Protototype for an online store using Vue stack.
+
 
 This project uses:
 
 Front:
 Scss, ES6, Vue.js, Vuex, Vue router.
 
-Backend:
+Backend (just a bit):
 Node.js, Express.js
 
 Live:
