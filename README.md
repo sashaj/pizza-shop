@@ -1,5 +1,5 @@
 # pizza_shop
-Protototype for an online store using Vue stack.
+A protototype for an online store using Vue stack.
 
 
 This project uses:
