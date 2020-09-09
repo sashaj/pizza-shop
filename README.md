@@ -1,4 +1,4 @@
-# pizza_shop
+# vue_shop
 A protototype for an online store using Vue stack.
 
 
